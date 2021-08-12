@@ -8,7 +8,7 @@
     <meta name="description" content="Free Artist Tools by cecilieo.com">
     <meta name="author" content="Shinichi Okada">
 
-    <title>Binary Image Classifier</title>
+    <title>Tricode Image Classifier</title>
     <link rel="icon" href="static/images/fav.ico" sizes="32x32" />
 
     <!-- Bootstrap CSS CDN -->
@@ -62,15 +62,92 @@
 <body>
     <div class="wrapper">
         <!-- Sidebar  -->
+<nav id="sidebar">
+    <div id="dismiss">
+        <i class="fas fa-arrow-left"></i>
+    </div>
 
+    <div class="sidebar-header">
+        <h3>Tricode Image Classifier</h3>
+    </div>
+
+    <ul class="list-unstyled components">
+        <li class="active">
+            <li>
+                <a href="/">Home</a>
+            </li>
+        </li>
+        <li>
+            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
+            <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                    <a href="https://github.com/Ajmalva/TriCode-Fruits-image-classifier">Github</a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/company/tinkerhub/?originalSubdomain=in">TinkerHub</a>
+                </li>
+            </ul>
+        </li>
+        <li class="active">
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Contact</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li>
+                    <a href="https://github.com/Ajmalva">Ajmal VA</a>
+                </li>
+                <li>
+                    <a href="https://github.com/A-L-V-I-N">Alvin Antony</a>
+                </li>
+                <li>
+                    <a href="https://github.com/smile-10">Ancy Paul</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="/about">About</a>
+        </li>
+    </ul>
+</nav>
+        <!-- Page Content  -->
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+            
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>TriCode</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+            
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item {{'active' if active_page == 'unsplash' }}">
+                                <a class="nav-link" href="/">Home</a>
+                            </li>
+                            <li class="nav-item {{'active' if active_page == 'twoforms' }}">
+                                <a class="nav-link" href="https://github.com/Ajmalva/TriCode-Fruits-image-classifier">Github</a>
+                            </li>
+                            <li class="nav-item {{'active' if active_page == 'accordion' }}">
+                                <a class="nav-link" href="https://github.com/Ajmalva">Contact</a>
+                            </li>
+                            <li class="nav-item {{'active' if active_page == 'upload' }}">
+                                <a class="nav-link" href="/about">About</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
             <div class="content-wrapper">
-                <h1 style="text-align: center;margin-top: 60px;"> Binary Image Classifier</h1>
+                <h1 style="text-align: center;"> TriCode Image Classifier</h1>
                 <br>
             <form class="form-horizontal" action="/submit" method="post" enctype="multipart/form-data">
             <div class="panel">
                 <input id="file-upload" class="hidden" type="file" accept="image/x-png,image/gif,image/jpeg" placeholder="Hours Studied"  name="my_image" />
                 <label for="file-upload" id="file-drag" class="upload-box">
-                  <div id="upload-caption">Click to select image</div>
+                  <div id="upload-caption" style="text-align: center;">Click to select an image of Mango or JackFruit</div>
                   <img id="image-preview" class="hidden" />
                 </label>
               </div>
@@ -86,9 +163,8 @@
             
             <img class="center" src="{{img_path}}" >
             <br>
-            <h2 style="text-align: center;" font-family=" 'Courier New', monospace;"> Probably it is a  {{prediction}}</h2>
-            
-              {% endif %}
+            <h2 style="text-align: center;" font-family=" 'Courier New', monospace;"> I think its a : <i> {{prediction}} </i></h2>
+			  {% endif %}
         </div>
         </div>
     </div>
