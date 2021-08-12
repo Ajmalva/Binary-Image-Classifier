@@ -11,19 +11,19 @@ from keras.preprocessing import image
 
 app = Flask(__name__)
 
-dic = {1 : 'truck', 0 : 'ship'}
+dic = {1 : 'Truck', 0 : 'Ship'}
 
 model = load_model('model.h5')
 
 model.make_predict_function()
 
 def predict_label(img_path):
-	i = image.load_img(img_path, target_size=(32,32))
+	i = image.load_img(img_path, target_size=(100,100))
 	i = image.img_to_array(i)/255.0
-	i = i.reshape(1, 32,32,3)
+	i = i.reshape(1, 100,100,3)
 	p = model.predict_classes(i)
 	return dic[p[0]]
-#(1809, 32, 32, 3) (201, 32, 32, 3)
+
 
 # routes
 @app.route("/", methods=['GET', 'POST'])
@@ -32,7 +32,8 @@ def main():
 
 @app.route("/about")
 def about_page():
-	return "A binary image classifier to accept user input as image and predict wheather it's a ship or truck." 
+	return "A binary image classifier to accept user input as image and predict wheather it's a mango or jackfruit. Created and collaborated by Ajmal.Va, Alvin Antony Ms, Ancy Paul for the TinkerHub Build From Home Event."
+
 @app.route("/submit", methods = ['GET', 'POST'])
 def get_output():
 	if request.method == 'POST':
