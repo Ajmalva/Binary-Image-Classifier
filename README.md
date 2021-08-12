@@ -9,3 +9,7 @@ This project requires  **Python 3.x**  and the following Python libraries instal
 -   [Pillow](https://pillow.readthedocs.io/en/stable/)
 -   [keras](https://github.com/keras-team/keras)
 -   [Matplotlib](https://matplotlib.org/)
+
+
+![CNN_Model9](https://user-images.githubusercontent.com/72436408/129135184-f606e543-ec55-4320-9a13-534c67ea909c.png)
+
